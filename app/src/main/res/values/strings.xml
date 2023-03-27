@@ -2,6 +2,29 @@
     <string name="app_name">MobileTask</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="selected_item">Selected item:</string>
+    <string name="details_name">تفاصيل المزاد</string>
+    <string name="name1">اسم المزاد</string>
+    <string name="code_1234">code 1234</string>
+    <string name="evaluation">تقييم المزاد</string>
+    <string name="_2000">2000 $</string>
+    <string name="space">---------------</string>
+    <string name="value_new">القيمة الحالية للمزاد</string>
+    <string name="evaluation1">تقييم المزاد</string>
+    <string name="evaluation3">تقييم المزاد</string>
+    <string name="المزايدون">المزايدون</string>
+    <string name="المزايدون1">المزايدون</string>
+    <string name="_13_00_55">13.00.55</string>
+    <string name="_4">4 منتجات</string>
+    <string name="all">عرض الكل</string>
+    <string name="prouduct">منتجات متشابهه</string>
+    <string name="_10000">+10000</string>
+    <string name="_100001">+10000</string>
+    <string name="_100002">+10000</string>
+    <string name="للمزاد">القيمة الحالية للمزاد</string>
+    <string name="_200">200 $</string>
+    <string name="المبلغ">اكتب المبلغ</string>
+    <string name="بتاريخ">بتاريخ</string>
+    <string name="_26_11_2021">26-11-2021</string>
     <string-array name="Languages">
 
         <item>Java</item>

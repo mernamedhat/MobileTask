@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MobileTask" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MobileTask" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -24,5 +24,17 @@
         <item name="background">@color/transparent</item>
 
 
+    </style>
+    <style name="RatingBar" parent="android:style/Widget.Material.RatingBar">
+    <!--        <item name="strokeColor">#000</item>-->
+    <!--        <item name="strokeWidth">2dp</item>-->
+    <item name="colorControlNormal">#B1B1B1</item>
+    <item name="colorControlActivated">#FF9639</item>
+    </style>
+    <style name="RatingBarr" parent="android:style/Widget.Material.RatingBar.Small">
+<!--        <item name="strokeColor">#000</item>-->
+<!--        <item name="strokeWidth">2dp</item>-->
+        <item name="colorControlNormal">#B1B1B1</item>
+        <item name="colorControlActivated">#FF9639</item>
     </style>
 </resources>

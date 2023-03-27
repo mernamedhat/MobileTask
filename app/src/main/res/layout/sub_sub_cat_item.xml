@@ -27,7 +27,7 @@
                 android:cursorVisible="false"
                 android:drawableStart="#fff"
 
-                android:inputType="phone"
+
 
                 android:textSize="@dimen/_15sdp" />
         </com.google.android.material.textfield.TextInputLayout>

@@ -18,7 +18,6 @@
             android:layout_gravity="start"
             android:gravity="start"
             app:layout_constraintBottom_toBottomOf="parent">
-
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/subCatitem"
                 android:layout_width="match_parent"
@@ -26,16 +25,12 @@
                 android:layout_gravity="start"
                 android:cursorVisible="false"
                 android:drawableStart="#fff"
-
-                android:inputType="phone"
-
                 android:textSize="@dimen/_15sdp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_30sdp"
-
             android:gravity="end"
             android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
             android:layout_marginStart="@dimen/_250sdp"
