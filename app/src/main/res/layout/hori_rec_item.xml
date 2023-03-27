@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_150sdp"
+    android:layout_margin="@dimen/_10sdp"
+    android:layoutDirection="ltr"
+    android:orientation="vertical"
+
+    android:background="@drawable/hori_item_background"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_120sdp">
+    <ImageView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/car1"
+        android:scaleType="fitXY"
+        android:id="@+id/car1"
+        tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/heart"
+            />
+
+        <LinearLayout
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="#D20653"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مزاد مباشر"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:padding="@dimen/_2sdp"
+        android:layout_gravity="center"
+        android:text="سيارة سريعة بى ام دابليو\nتصنيع 2021 حالته جديدة"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="#1D1D1D"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="يبدأ بعد"
+                android:layout_gravity="center"
+                android:padding="@dimen/_3sdp"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#1D1D1D"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3:22:55"
+               android:padding="@dimen/_3sdp"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#1D1D1D"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="د    س    يوم"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="@dimen/_3sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="#1D1D1D"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="بداية المزاد"
+                android:layout_gravity="center"
+                android:padding="@dimen/_3sdp"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#1D1D1D"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20000"
+                android:padding="@dimen/_3sdp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#F45B14"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ريال"
+
+                android:layout_gravity="center"
+                android:padding="@dimen/_3sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="#F45B14"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

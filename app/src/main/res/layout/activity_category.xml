@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
+        android:orientation="vertical">
+
+
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="10dp">-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/input_layout_phone"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:gravity="start"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/input_phone"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="start"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:drawableStart="#fff"-->
+<!--                    android:hint="Select language:"-->
+<!--                    android:inputType="phone"-->
+<!--                   -->
+<!--                    android:textSize="@dimen/_15sdp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <Spinner-->
+<!--                android:layout_width="@dimen/_180sdp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:id="@+id/spinner"-->
+<!--                android:gravity="end"-->
+<!--                android:layout_marginStart="@dimen/_100sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/hgggg"
+            android:padding="10dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_phone2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:gravity="start"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_phone2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:cursorVisible="false"
+                    android:paddingEnd="@dimen/_50sdp"
+                    android:drawableStart="#fff"
+
+                    android:hint="Main Category"
+
+                    android:textSize="@dimen/_15sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:id="@+id/spinner2"
+                android:gravity="end"
+                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:layout_marginStart="@dimen/_250sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/SubCat"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_phone3"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:gravity="start"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/sub_Cat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:cursorVisible="false"
+                    android:drawableStart="#fff"
+                    android:hint="Sub Category"
+                    android:inputType="phone"
+                   
+                    android:textSize="@dimen/_15sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_30sdp"
+
+                android:gravity="end"
+                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:layout_marginStart="@dimen/_250sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/MainRc"
+            />
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+
+<!--            android:padding="10dp">-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/MainCat"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:gravity="start"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/Main_cat"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="start"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:paddingEnd="@dimen/_50sdp"-->
+<!--                    android:drawableStart="#fff"-->
+
+<!--                    android:hint="Process Type"-->
+
+<!--                    android:textSize="@dimen/_15sdp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/_50sdp"-->
+<!--                android:layout_height="@dimen/_30sdp"-->
+<!--                android:gravity="end"-->
+<!--                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                android:layout_marginStart="@dimen/_250sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="10dp">-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/input_layout_phone4"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:gravity="start"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/input_phone4"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="start"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:drawableStart="#fff"-->
+<!--                    android:hint="Specify here"-->
+<!--                    android:inputType="phone"-->
+<!--                   -->
+<!--                    android:textSize="@dimen/_15sdp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/_50sdp"-->
+<!--                android:layout_height="@dimen/_30sdp"-->
+
+<!--                android:gravity="end"-->
+<!--                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                android:layout_marginStart="@dimen/_250sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="10dp">-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/input_layout_phone5"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:gravity="start"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/input_phone5"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="start"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:drawableStart="#fff"-->
+<!--                    android:hint="Brand"-->
+<!--                    android:inputType="phone"-->
+<!--                   -->
+<!--                    android:textSize="@dimen/_15sdp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/_50sdp"-->
+<!--                android:layout_height="@dimen/_30sdp"-->
+
+<!--                android:gravity="end"-->
+<!--                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                android:layout_marginStart="@dimen/_250sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="10dp">-->
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/input_layout_phone6"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:gravity="start"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/input_phone6"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:cursorVisible="false"-->
+<!--                android:drawableStart="#fff"-->
+<!--                android:hint="Transmission Type"-->
+<!--                android:inputType="phone"-->
+<!--               -->
+<!--                android:textSize="@dimen/_15sdp" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/_50sdp"-->
+<!--                android:layout_height="@dimen/_30sdp"-->
+
+<!--                android:gravity="end"-->
+<!--                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                android:layout_marginStart="@dimen/_250sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="10dp">-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/input_layout_phone7"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:gravity="start"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/input_phone7"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="start"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:drawableStart="#fff"-->
+<!--                    android:hint="Fuel Type"-->
+<!--                    android:inputType="phone"-->
+<!--                   -->
+<!--                    android:textSize="@dimen/_15sdp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/_50sdp"-->
+<!--                android:layout_height="@dimen/_30sdp"-->
+<!--                android:gravity="end"-->
+<!--                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                android:layout_marginStart="@dimen/_250sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="10dp">-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/input_layout_phone8"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:gravity="start"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/input_phone8"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="start"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:drawableStart="#fff"-->
+<!--                    android:hint="Condition"-->
+<!--                    android:inputType="phone"-->
+<!--                   -->
+<!--                    android:textSize="@dimen/_15sdp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/_50sdp"-->
+<!--                android:layout_height="@dimen/_30sdp"-->
+
+<!--                android:gravity="end"-->
+<!--                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                android:layout_marginStart="@dimen/_250sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="10dp">-->
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/input_layout_phone9"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:gravity="start"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/input_phone9"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:cursorVisible="false"-->
+<!--                android:drawableStart="#fff"-->
+<!--                android:hint="Color"-->
+<!--                android:inputType="phone"-->
+<!--               -->
+<!--                android:textSize="@dimen/_15sdp" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/_50sdp"-->
+<!--                android:layout_height="@dimen/_30sdp"-->
+
+<!--                android:gravity="end"-->
+<!--                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                android:layout_marginStart="@dimen/_250sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="10dp">-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/input_layout_phone10"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:gravity="start"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/input_phone10"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="start"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:drawableStart="#fff"-->
+<!--                    android:hint="Odometer"-->
+<!--                    android:inputType="phone"-->
+<!--                   -->
+<!--                    android:textSize="@dimen/_15sdp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/_50sdp"-->
+<!--                android:layout_height="@dimen/_30sdp"-->
+<!--                android:gravity="end"-->
+<!--                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                android:layout_marginStart="@dimen/_250sdp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

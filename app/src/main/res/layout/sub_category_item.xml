@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SubCat"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputlayoutphone3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:gravity="start"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/subCatitem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:cursorVisible="false"
+                android:drawableStart="#fff"
+
+                android:inputType="phone"
+
+                android:textSize="@dimen/_15sdp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_30sdp"
+
+            android:gravity="end"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:layout_marginStart="@dimen/_250sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
+        android:id="@+id/SubSubCatItem"/>
+
+</LinearLayout>

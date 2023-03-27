@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bg">
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/choosetxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+
+            android:layout_marginTop="5dp"
+            android:text="hhgggggg"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+       android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="@dimen/_260sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_gravity="center"
+
+        android:background="@drawable/search_background"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="match_parent"
+            app:endIconMode="custom"
+            android:background="@color/transparent"
+            android:hint="Search...."
+            android:padding="@dimen/_5sdp"
+            android:maxLines="1"
+            android:minLines="1"
+            android:textCursorDrawable="@color/black"
+            android:cursorVisible="false"
+            android:textColor="@color/black"
+            android:textColorHint="#47333333"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+
+            android:textSize="@dimen/_13sdp" />
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rec"/>
+
+
+
+
+
+
+
+</LinearLayout>
