@@ -1,6 +1,7 @@
 package com.example.mobiletask
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -46,6 +47,15 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
         dialog.setContentView(R.layout.bottomsheetlayout)
 
         getMainCategory()
+        next.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+        }
+        submit.setOnClickListener {
+
+
+        }
 
         input_phone2.setOnClickListener {
             dialog.choosetxt.setText("Main Category")
@@ -150,6 +160,7 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
     override fun OptionsCallback(text: String?, position: Int?, hint: String?) {
         /////CallOptions Api
 //        Log.d("zeco",position.toString())
+
         dialog.choosetxt.setText(hint)
         val viewModel = ViewModelProvider(this)[CategoryViewModel::class.java]
         viewModel.getProcessType(preferences.getCategoryId()).observe(this) {
