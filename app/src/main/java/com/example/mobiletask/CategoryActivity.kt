@@ -1,14 +1,13 @@
 package com.example.mobiletask
 
-import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,14 +20,16 @@ import com.example.mobiletask.ui.category.SubCategoryAdapter
 import com.example.mobiletask.ui.category.MainCategoryAdapter
 import com.example.mobiletask.ui.options.SubCategoryOptionsAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_category.*
 import kotlinx.android.synthetic.main.bottomsheetlayout.*
 
 
 class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterface,
-    SubCategoryAdapter.CallbackInterface, SubCategoryOptionsAdapter.CallbackInterface ,ProcessTypeAdapter.CallbackInterface{
+    SubCategoryAdapter.CallbackInterface, SubCategoryOptionsAdapter.CallbackInterface,ProcessTypeAdapter.CallbackInterface{
     private lateinit var binding: ActivityCategoryBinding
     private lateinit var dialog: BottomSheetDialog
+    var catText: EditText? = null
     var text:String=" "
     var id:Int=0
     private val MainCategoryAdapter by lazy { MainCategoryAdapter(this) }
@@ -50,12 +51,8 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
         next.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
         }
-        submit.setOnClickListener {
 
-
-        }
 
         input_phone2.setOnClickListener {
             dialog.choosetxt.setText("Main Category")
@@ -75,7 +72,7 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
 
         viewModel.getCategorys(
         ).observe(this) {
-
+            nameList.clear()
             nameList.addAll(it.data!!.categories)
             input_phone2.setText(it.data!!.categories.get(0).slug)
             if (it.data!!.categories.get(0).children.size != 0) {
@@ -98,7 +95,7 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
         viewModel.getProcessType(
             CatId
         ).observe(this) {
-
+            nameList.clear()
             nameList.addAll(it.data)
 
             SubCategoryOptionsAdapter.differ.submitList(nameList)
@@ -139,6 +136,7 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
             val viewModel = ViewModelProvider(this)[CategoryViewModel::class.java]
             viewModel.getCategorys(
             ).observe(this) {
+                nameList.clear()
                 nameList.addAll(it.data!!.categories.get(id!!).children)
                 SubCategoryAdapter.differ.submitList(nameList)
                 binding.apply {
@@ -147,8 +145,9 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
                         adapter = SubCategoryAdapter
                     }
                 }
+                showDialog()
             }
-            showDialog()
+
         }
     }
     override fun SubCategoryCallback(text: String, chickChild: String, sub_id: Int?) {
@@ -157,54 +156,37 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
         getProcessType(sub_id!!)
     }
 
-    override fun OptionsCallback(text: String?, position: Int?, hint: String?) {
-        /////CallOptions Api
-//        Log.d("zeco",position.toString())
-
+    override fun OptionsCallback(
+        text: String?,
+        position: Int?,
+        hint: String?,
+        subCatitem: TextInputEditText
+    ) {
+        catText = subCatitem
         dialog.choosetxt.setText(hint)
         val viewModel = ViewModelProvider(this)[CategoryViewModel::class.java]
         viewModel.getProcessType(preferences.getCategoryId()).observe(this) {
+            nameList.clear()
             nameList.addAll(it.data.get(position!!).options)
+            //nameList.addAll(5,it.data.get(position!!).options )
+            //ProcessTypeAdapter.notifyItemChanged(5)
             ProcessTypeAdapter.differ.submitList(nameList)
             binding.apply {
                 dialog.rec.apply {
                     layoutManager = LinearLayoutManager(this@CategoryActivity)
                     adapter = ProcessTypeAdapter
                 }
+
             }
+            showDialog()
+
         }
-        showDialog()
+
 
     }
 
     override fun OptionsCallback(textt: String, sub_id: Int?) {
-
-        val viewModel = ViewModelProvider(this)[CategoryViewModel::class.java]
-        viewModel.getProcessType(preferences.getCategoryId()).observe(this) {
-
-          //  Log.d("zecoooLog",it.data.get(0!!).options.get(0).slug.toString())
-//            ProcessTypeAdapter.differ.submitList(nameList)
-//            binding.apply {
-//                dialog.rec.apply {
-//                    layoutManager = LinearLayoutManager(this@CategoryActivity)
-//                    adapter = ProcessTypeAdapter
-//                }
-//            }
-        }
-
-
-//        preferences.saveCategoryname(textt)
-//
-//        SubCategoryOptionsAdapter.notifyDataSetChanged()
-//        binding.apply {
-//            MainRc.apply {
-//                layoutManager = LinearLayoutManager(this@CategoryActivity)
-//                adapter = SubCategoryOptionsAdapterr
-//
-//            }
-//        }
-//        text=textt
-//        id=sub_id!!
+        catText?.setText(textt)
         dialog.dismiss()
     }
 

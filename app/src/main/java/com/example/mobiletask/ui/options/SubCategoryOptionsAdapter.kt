@@ -3,7 +3,6 @@ package com.example.mobiletask.ui.options
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.boxesaplication.prefrence.Preferences
 import com.example.mobiletask.databinding.SubCategoryItemBinding
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_category.*
 import kotlinx.android.synthetic.main.bottomsheetlayout.*
 
@@ -20,7 +20,12 @@ class SubCategoryOptionsAdapter(private val callbackInterface: CallbackInterface
     private lateinit var binding: SubCategoryItemBinding
     private lateinit var preferences: Preferences
     interface CallbackInterface {
-        fun OptionsCallback(text: String?,sub_id:Int?=null,hint:String?)
+        fun OptionsCallback(
+            text: String?,
+            sub_id: Int? = null,
+            hint: String?,
+            subCatitem: TextInputEditText
+        )
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,13 +43,12 @@ class SubCategoryOptionsAdapter(private val callbackInterface: CallbackInterface
                 preferences = Preferences(context)
                 inputlayoutphone3.setHint( item.slug)
                 if (item.options.size!=0){
-                subCatitem.setText(preferences.getCategoryname())
+                    subCatitem.setText(item.options.get(0).slug)
                 }
                 subCatitem.setOnClickListener {
                     if(item.options.size!=0)
-                    callbackInterface.OptionsCallback(item.options.get(0).slug,position,item.slug)
+                    callbackInterface.OptionsCallback(item.options.get(0).slug,position,item.slug,subCatitem)
                 }
-
             }
         }
     }

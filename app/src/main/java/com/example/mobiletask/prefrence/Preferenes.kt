@@ -16,15 +16,10 @@ class Preferences(context: Context) {
 
 
 
-    fun saveCategoryname(value: String) {
-        preferences.edit().putString(Catname, value).apply()
-    }
-
-    fun getCategoryname() = preferences.getString(Catname, " ")
 
     companion object {
         const val CatId = "Cat_id"
-        const val Catname = "Cat_Name"
+
     }
 
 }
