@@ -22,6 +22,7 @@ class MainCategoryAdapter(private val callbackInterface: CallbackInterface): Rec
         fun setData(item : Categories){
             binding.apply {
                 textView.text = item.slug
+
                 itemView.setOnClickListener {
                     if(item.children.size!=0) {
                         callbackInterface.passResultCallback(item.slug.toString(), "1",position)

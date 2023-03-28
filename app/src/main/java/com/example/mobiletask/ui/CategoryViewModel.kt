@@ -11,5 +11,8 @@ class CategoryViewModel : ViewModel() {
     fun getProcessType(cat:Int) = liveData {
         emit(CategoryRepository().getProcessType(cat))
     }
+    fun getoptionschild(option:Int) = liveData {
+        emit(CategoryRepository().getoptionschild(option))
+    }
 
 }

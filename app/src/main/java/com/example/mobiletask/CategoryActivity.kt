@@ -15,10 +15,11 @@ import com.example.boxesaplication.prefrence.Preferences
 import com.example.marvel.ui.home.CategoryViewModel
 import com.example.mobiletask.api.Options
 import com.example.mobiletask.databinding.ActivityCategoryBinding
-import com.example.mobiletask.ui.options.ProcessTypeAdapter
-import com.example.mobiletask.ui.category.SubCategoryAdapter
 import com.example.mobiletask.ui.category.MainCategoryAdapter
+import com.example.mobiletask.ui.category.SubCategoryAdapter
+import com.example.mobiletask.ui.options.ProcessTypeAdapter
 import com.example.mobiletask.ui.options.SubCategoryOptionsAdapter
+import com.example.mobiletask.ui.submit.SubmitActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_category.*
@@ -30,15 +31,16 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
     private lateinit var binding: ActivityCategoryBinding
     private lateinit var dialog: BottomSheetDialog
     var catText: EditText? = null
-    var text:String=" "
-    var id:Int=0
+    var Hint: String? = null
+    var SubmitList = ArrayList<SubmitModel>()
+    //var SubmitList : MutableList<SubmitModel> = mutableListOf()
     private val MainCategoryAdapter by lazy { MainCategoryAdapter(this) }
     private val SubCategoryAdapter by lazy { SubCategoryAdapter(this, this) }
     private val ProcessTypeAdapter by lazy { ProcessTypeAdapter(this,this) }
     private val SubCategoryOptionsAdapter by lazy { SubCategoryOptionsAdapter(
         this,this) }
     private lateinit var preferences: Preferences
-    val nameList: MutableList<Options> = mutableListOf()
+    var nameList: MutableList<Options> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryBinding.inflate(layoutInflater)
@@ -52,19 +54,17 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
-
-        input_phone2.setOnClickListener {
+        Submit.setOnClickListener {
+            val intent = Intent(this, SubmitActivity::class.java)
+            intent.putExtra("mylist",SubmitList)
+            startActivity(intent)
+        }
+        MainCategory.setOnClickListener {
             dialog.choosetxt.setText("Main Category")
             getMainCategory()
             showDialog()
-
-
         }
-
-
     }
-
     private fun getMainCategory() {
         val nameList: MutableList<Categories> = mutableListOf()
 
@@ -74,7 +74,7 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
         ).observe(this) {
             nameList.clear()
             nameList.addAll(it.data!!.categories)
-            input_phone2.setText(it.data!!.categories.get(0).slug)
+            MainCategory.setText(it.data!!.categories.get(0).slug)
             if (it.data!!.categories.get(0).children.size != 0) {
                 SubCat.visibility = View.VISIBLE
             }
@@ -89,12 +89,10 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
         }
 
     }
-    private fun getProcessType(CatId: Int) {
+    private fun getSubCategory(CatId: Int) {
         val nameList: MutableList<com.example.mobiletask.api.Data> = mutableListOf()
         val viewModel = ViewModelProvider(this)[CategoryViewModel::class.java]
-        viewModel.getProcessType(
-            CatId
-        ).observe(this) {
+        viewModel.getProcessType(CatId).observe(this) {
             nameList.clear()
             nameList.addAll(it.data)
 
@@ -119,7 +117,8 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
         dialog.window!!.setGravity(Gravity.BOTTOM)
     }
     override fun passResultCallback(text: String, chickChild: String, id: Int?) {
-        input_phone2.setText(text)
+        MainCategory.setText(text)
+        SubmitList.add(SubmitModel(0,"Main Category",text))
         dialog.dismiss()
 
         SubCat.visibility = if (chickChild.equals(1)) View.GONE
@@ -152,16 +151,14 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
     }
     override fun SubCategoryCallback(text: String, chickChild: String, sub_id: Int?) {
         sub_Cat.setText(text)
+        SubmitList.add(SubmitModel(0,"Sub Category",text))
+
         dialog.dismiss()
-        getProcessType(sub_id!!)
+        getSubCategory(sub_id!!)
     }
 
-    override fun OptionsCallback(
-        text: String?,
-        position: Int?,
-        hint: String?,
-        subCatitem: TextInputEditText
-    ) {
+    override fun OptionsCallback(text: String?, position: Int?, hint: String?, subCatitem: TextInputEditText) {
+        Hint=hint
         catText = subCatitem
         dialog.choosetxt.setText(hint)
         val viewModel = ViewModelProvider(this)[CategoryViewModel::class.java]
@@ -176,19 +173,26 @@ class CategoryActivity : AppCompatActivity(), MainCategoryAdapter.CallbackInterf
                     layoutManager = LinearLayoutManager(this@CategoryActivity)
                     adapter = ProcessTypeAdapter
                 }
-
             }
             showDialog()
-
         }
-
-
     }
 
     override fun OptionsCallback(textt: String, sub_id: Int?) {
         catText?.setText(textt)
+        SubmitList.add( SubmitModel(0,Hint!!,textt))
+       // getoptionschild( 5)
         dialog.dismiss()
     }
+    private fun getoptionschild( posithon:Int) {
+        val nameList: MutableList<com.example.mobiletask.api.Data> = mutableListOf()
+        val viewModel = ViewModelProvider(this)[CategoryViewModel::class.java]
+        viewModel.getoptionschild(50).observe(this) {
+            nameList.addAll(0,it.data )
+            SubCategoryOptionsAdapter.differ.submitList(nameList)
+            SubCategoryOptionsAdapter.notifyDataSetChanged()
 
+        }
+    }
 
 }
